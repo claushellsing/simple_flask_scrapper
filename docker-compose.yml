@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "5055:5000"
+    tty: true
