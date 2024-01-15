@@ -18,6 +18,7 @@ def index():
     h2Text = html2text.HTML2Text()
 
     url = request.args.get('url')
+    print(url)
     selector = request.args.get('selector')
     parse = request.args.get('parse', default=0, type=isTrue)
     ignoreLinks = request.args.get('ignoreLinks', default=0, type=isTrue)
@@ -33,9 +34,10 @@ def index():
     # #Add option to remove tags
 
     elementsList = []
+    parsedElement = ""
+    
     for element in elements:
         htmlElement = str(element)
-        parsedElement = ""
 
         if (parse):
             parsedElement = h2Text.handle(htmlElement)
